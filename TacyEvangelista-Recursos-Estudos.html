@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recursos e Estudos — Tacy Evangelista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --primary: #0f172a;
+      --accent: #d4af37;
+      --muted: #6b7280;
+      --glass: rgba(15,23,42,0.05);
+      font-family: 'Libre Baskerville', serif;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { background: var(--bg); color: var(--primary); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+    .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { font-weight: 600; color: var(--muted); transition: color 0.3s; }
+    nav a:hover { color: var(--accent); }
+
+    .intro { text-align: center; margin-bottom: 40px; }
+    .intro p { font-size: 18px; color: var(--muted); max-width: 700px; margin: 0 auto; }
+
+    .section { padding: 20px; background: var(--glass); border-radius: 12px; margin-bottom: 30px; }
+    .section h2 { font-size: 24px; margin-bottom: 12px; }
+    .section ul { padding-left: 20px; color: var(--primary); }
+    .section li { margin-bottom: 8px; }
+
+    footer { text-align: center; margin-top: 50px; padding: 20px 0; border-top: 1px solid rgba(15,23,42,0.1); color: var(--muted); font-size: 14px; }
+
+    @media(max-width: 768px){
+      nav ul { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="logo">Tacy Evangelista</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#resources">Recursos</a></li>
+        <li><a href="#studies">Estudos em Andamento</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <p>Este é um espaço para compartilhar meus estudos e ajudá-lo(a) a explorar a fé, a razão e a cultura junto comigo.</p>
+  </div>
+
+  <section class="section" id="resources">
+    <h2>Recursos e Leituras</h2>
+    <ul>
+      <li><strong>Livros recomendados:</strong> ainda serão adicionados.</li>
+      <li><strong>Artigos acadêmicos/teológicos:</strong> lista em breve.</li>
+      <li><strong>Links de estudos bíblicos:</strong> serão disponibilizados aqui.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="studies">
+    <h2>Estudos em Andamento</h2>
+    <ul>
+      <li><strong>Filosofia Cristã:</strong> reflexões e leituras contínuas.</li>
+      <li><strong>História do Cristianismo:</strong> estudo de contextos e acontecimentos históricos.</li>
+      <li><strong>Hermenêutica Bíblica:</strong> interpretação e análise de textos bíblicos.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contato</h2>
+    <p>Email: <a href="mailto:tacianeoli55@gmail.com">tacianeoli55@gmail.com</a><br>
+    Telefone: (75) 8148-5516</p>
+  </section>
+
+  <footer>
+    © 2025 Tacy Evangelista — Fé, Razão e Cultura
+  </footer>
+
+</div>
+
+</body>
+</html>
