@@ -1,112 +1,15 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anne Oliveira — Fé, Razão e Cultura</title>
-  <meta name="description" content="Anne Oliveira — Criadora de conteúdo teológico e filosófico, explorando fé, razão e cultura." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --primary: #0f172a;
-      --accent: #d4af37; /* dourado */
-      --muted: #6b7280;
-      --glass: rgba(15,23,42,0.05);
-      font-family: 'Libre Baskerville', serif;
-    }
-    * { box-sizing: border-box; margin:0; padding:0; }
-    body { background: var(--bg); color: var(--primary); line-height: 1.6; }
-    a { color: var(--accent); text-decoration: none; }
-    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
-
-    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-    .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav a { font-weight: 600; color: var(--muted); transition: color 0.3s; }
-    nav a:hover { color: var(--accent); }
-
-    .hero { text-align: center; margin-bottom: 50px; }
-    .hero h1 { font-size: 36px; margin-bottom: 10px; }
-    .hero p { font-size: 18px; color: var(--muted); max-width: 700px; margin: 0 auto; }
-    .hero .verse { margin-top: 20px; font-style: italic; color: var(--accent); font-weight: 600; }
-    .hero .btn { display: inline-block; margin-top: 25px; padding: 12px 25px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; transition: background 0.3s; }
-    .hero .btn:hover { background: #b88923; }
-
-    .content { display: grid; grid-template-columns: 1fr; gap: 30px; }
-    .section { padding: 20px; background: var(--glass); border-radius: 12px; }
-    .section h2 { font-size: 24px; margin-bottom: 12px; }
-    .section p { color: var(--primary); }
-
-    footer { text-align: center; margin-top: 50px; padding: 20px 0; border-top: 1px solid rgba(15,23,42,0.1); color: var(--muted); font-size: 14px; }
-
-    @media(max-width: 768px){
-      nav ul { flex-direction: column; gap: 12px; }
-    }
-  </style>
-</head>
-<body>
-
-<div class="container">
-
-  <header>
-    <div class="logo">Tacy Evangelista</div>
-    <nav>
-      <ul>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>Pesquiso e escrevo sobre fé, razão e cultura</h1>
-    <p>Este é um espaço dedicado a reflexões teológicas e filosóficas, com uma perspectiva cristã contemporânea, leve e intelectual.</p>
-    <div class="verse" id="verse">"Carregai os fardos uns dos outros, e assim cumprireis a lei de Cristo." — Gálatas 6:2</div>
-    <a href="TacyEvangelista-Recursos-Estudos.html" class="btn">Ir para Estudos</a>
-  </section>
-
-  <div class="content">
-
-    <section class="section" id="about">
-      <h2>Sobre Mim</h2>
-      <p>Sou Tacy Evangelista, graduanda em Biomedicina e programadora nas horas vagas, dedicada à criação de conteúdo teológico e filosófico. Este espaço concentra meus estudos, reflexões e análises sobre fé, razão e cultura.</p>
-    </section>
-
-    <section class="section" id="blog">
-      <h2>Blog</h2>
-      <p>Nenhum artigo publicado ainda. Em breve, textos acadêmicos e reflexões teológicas serão adicionados aqui.</p>
-    </section>
-
-    <section class="section" id="contact">
-      <h2>Contato</h2>
-      <p>Email: <a href="mailto:tacianeoli55@gmail.com">tacianeoli55@gmail.com</a><br>
-      Telefone: (75) 8148-5516</p>
-    </section>
-
-  </div>
-
-  <footer>
-    © 2025 Tacy Evangelista — Fé, Razão e Cultura
-  </footer>
-
-</div>
-
-<script>
-  const verses = [
-    '"Carregai os fardos uns dos outros, e assim cumprireis a lei de Cristo." — Gálatas 6:2',
-    '"Lâmpada para os meus pés é a tua palavra, e luz para o meu caminho." — Salmos 119:105',
-    '"Porque a sabedoria vem do Senhor e é com Ele que permanece." — Provérbios 2:6'
-  ];
-  let index = 0;
-  setInterval(() => {
-    index = (index + 1) % verses.length;
-    document.getElementById('verse').textContent = verses[index];
-  }, 8000);
-</script>
-
-</body>
-</html>
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
