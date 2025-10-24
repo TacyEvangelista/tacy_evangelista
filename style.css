@@ -1,0 +1,76 @@
+/* modal */
+.overlay{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(107,15,23,0.48);
+  backdrop-filter:blur(2px);
+  z-index:60;
+}
+.modal{
+  width:min(930px,95%);
+  max-height:90vh; /* ✅ impede de sair da tela */
+  background:linear-gradient(180deg,#fff8f2,#f7efe6);
+  border-radius:12px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  display:flex;
+  gap:20px;
+  overflow:hidden;
+  position:relative;
+}
+.modal .left{
+  flex:0 0 44%;
+  background:#f3e9df;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.modal .left img{
+  width:100%;
+  height:auto;
+  max-height:82vh; /* ✅ evita imagem gigante */
+  object-fit:cover;
+  border-radius:6px;
+  filter:sepia(0.5) contrast(0.95);
+}
+.modal .right{
+  flex:1;
+  padding:20px;
+  overflow-y:auto; /* ✅ rolagem garantida */
+  max-height:82vh; /* garante espaço p/ rolar */
+}
+.modal h3{
+  margin-top:0;color:var(--primary)
+}
+.modal .years{
+  color:var(--muted);
+  margin-bottom:10px
+}
+.close-btn{
+  position:absolute;
+  right:12px;
+  top:10px;
+  background:transparent;
+  border:0;
+  font-size:22px;
+  color:#fff;
+  cursor:pointer;
+}
+
+@media(max-width:900px){
+  .modal{
+    flex-direction:column;
+    max-height:92vh; /* ajustado para mobile */
+  }
+  .modal .left{
+    width:100%;
+    flex:0 0 auto;
+    max-height:35vh; /* imagem não ocupa tudo */
+  }
+  .modal .right{
+    max-height:55vh;
+  }
+}

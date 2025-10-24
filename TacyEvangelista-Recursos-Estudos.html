@@ -9,9 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#faf7f1; /* leve sépia */
+      --bg:#faf7f1;
       --primary:#0f172a;
-      --accent:#6b0f17; /* vinho */
+      --accent:#6b0f17;
       --gold:#d4af37;
       --muted:#6b7280;
       font-family:'Libre Baskerville', serif;
@@ -20,58 +20,46 @@
     body{background:var(--bg);color:var(--primary);line-height:1.6}
     a{color:var(--accent);text-decoration:none}
     .container{max-width:980px;margin:36px auto;padding:0 20px}
-
     header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
     .logo{font-size:22px;font-weight:700}
     nav ul{list-style:none;display:flex;gap:18px}
     nav a{color:var(--muted);font-weight:600}
     nav a:hover{color:var(--gold)}
-
-    /* seção principal */
     .grid{display:grid;grid-template-columns:1fr 320px;gap:28px}
     .main{min-height:300px}
-
-    /* vintage card / recorte */
     .author-card{display:flex;align-items:center;gap:16px;padding:12px;background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);position:relative}
     .thumb{width:92px;height:92px;border-radius:8px;overflow:hidden;flex:0 0 92px;display:block;position:relative}
     .thumb img{width:100%;height:100%;object-fit:cover;filter:sepia(0.45) saturate(0.8) contrast(0.98)}
     .meta{font-size:14px}
     .meta .name{font-weight:700}
     .meta .years{color:var(--muted);font-size:13px}
-
-    /* scrapbook decor */
     .thumb:after{content:'';position:absolute;left:6px;top:6px;width:24px;height:24px;background:linear-gradient(135deg,#fff8e6,#efe6d0);border-radius:4px;transform:rotate(-8deg);box-shadow:0 2px 6px rgba(0,0,0,0.08)}
     .card-deco{position:absolute;right:12px;top:12px;font-size:12px;color:var(--gold)}
-
-    /* lista de posts */
     .posts-list{display:flex;flex-direction:column;gap:12px}
     .post-item{padding:14px;background:rgba(255,255,255,0.85);border-radius:10px;border-left:4px solid var(--accent);cursor:pointer;transition:transform .18s}
     .post-item:hover{transform:translateY(-4px)}
-
-    /* sidebar */
     .aside .section{padding:14px;background:rgba(255,255,255,0.9);border-radius:10px}
-
     footer{margin-top:34px;padding:18px 0;text-align:center;color:var(--muted);font-size:14px}
 
     /* modal */
     .overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(107,15,23,0.48);backdrop-filter:blur(2px);z-index:60}
-    .modal{width:min(930px,95%);background:linear-gradient(180deg,#fff8f2,#f7efe6);border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.4);display:flex;gap:20px;overflow:hidden}
+    .modal{width:min(930px,95%);max-height:90vh;background:linear-gradient(180deg,#fff8f2,#f7efe6);border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.4);display:flex;gap:20px;overflow:hidden;position:relative}
     .modal .left{flex:0 0 44%;background:#f3e9df;padding:18px;display:flex;align-items:center;justify-content:center}
-    .modal .left img{width:100%;height:auto;max-height:440px;object-fit:cover;border-radius:6px;filter:sepia(0.5) contrast(0.95)}
-    .modal .right{flex:1;padding:20px;overflow:auto}
+    .modal .left img{width:100%;height:auto;max-height:82vh;object-fit:cover;border-radius:6px;filter:sepia(0.5) contrast(0.95)}
+    .modal .right{flex:1;padding:20px;overflow-y:auto;max-height:82vh}
     .modal h3{margin-top:0;color:var(--primary)}
     .modal .years{color:var(--muted);margin-bottom:10px}
     .close-btn{position:absolute;right:12px;top:10px;background:transparent;border:0;font-size:22px;color:#fff;cursor:pointer}
 
     @media(max-width:900px){
       .grid{grid-template-columns:1fr}
-      .modal{flex-direction:column}
-      .modal .left{width:100%;flex:0 0 auto}
+      .modal{flex-direction:column;max-height:92vh}
+      .modal .left{width:100%;flex:0 0 auto;max-height:35vh}
+      .modal .right{max-height:55vh}
     }
   </style>
 </head>
 <body>
-
 <div class="container">
   <header>
     <div class="logo">Erros & Limites — Tacy Evangelista</div>
@@ -87,6 +75,7 @@
   <div class="grid">
     <main class="main">
 
+      <!-- Rosa Luxemburgo -->
       <div class="author-card">
         <a class="thumb" id="author-rosa" href="#" data-author="rosa">
           <img src="rosa.jpg" alt="Rosa Luxemburgo">
@@ -98,11 +87,23 @@
         </div>
       </div>
 
+      <!-- Martinho Lutero -->
+      <div class="author-card" style="margin-top:16px">
+        <a class="thumb" id="author-lutero" href="#" data-author="lutero">
+          <img src="luter.jpg" alt="Martinho Lutero">
+        </a>
+        <div class="meta">
+          <div class="name">Martinho Lutero</div>
+          <div class="years">1483–1546</div>
+          <div class="card-deco">Legado Questionável</div>
+        </div>
+      </div>
+
       <div style="margin-top:18px">
         <h2 style="margin-bottom:10px">Posts recentes</h2>
         <div class="posts-list">
           <div class="post-item" data-author="rosa">Rosa Luxemburgo — Erros e Limites (clique para ler)</div>
-          <!-- futuramente outros posts -->
+          <div class="post-item" data-author="lutero">Martinho Lutero — Erros e Limites (clique para ler)</div>
         </div>
       </div>
 
@@ -111,12 +112,7 @@
     <aside class="aside">
       <div class="section">
         <h3>Recursos rápidos</h3>
-        <p style="color:var(--muted)">Use o botão acima para abrir o post. As imagens dos autores seguem o estilo vintage; clique para ampliar e ler.</p>
-      </div>
-
-      <div class="section" style="margin-top:12px">
-        <h3>Paleta</h3>
-        <p style="color:var(--muted)">Sépia • Branco • Dourado • Preto • Vinho</p>
+        <p style="color:var(--muted)">Clique nas fotos ou nos posts para abrir o conteúdo completo no modal. As imagens seguem estilo vintage.</p>
       </div>
     </aside>
   </div>
@@ -126,7 +122,7 @@
   </footer>
 </div>
 
-<!-- Modal template -->
+<!-- Modal -->
 <div class="overlay" id="overlay">
   <div class="modal" role="dialog" aria-modal="true">
     <div class="left">
@@ -142,14 +138,12 @@
 </div>
 
 <script>
-  // Conteúdo (texto do post corrigido ortograficamente conforme solicitado)
   const authors = {
     rosa: {
       name: 'Rosa Luxemburgo',
       years: '1871–1919',
       img: 'rosa.jpg',
       text: `Rosa Luxemburgo (1871–1919), revolucionária marxista, filósofa e teórica política alemã.
-
 
 Ela não era cristã, mas estudava e utilizava referências teológicas para embasar suas reflexões e críticas sociais em favor do socialismo. Suas ideias transformaram o pensamento político do século XX e inspiraram movimentos revolucionários, ainda que envoltas em fortes controvérsias. A história registra erros e acertos em sua trajetória; compreender seu legado é essencial para evitar os mesmos equívocos.
 
@@ -163,10 +157,32 @@ Sua abordagem raramente buscou compreender a experiência espiritual dos cristã
 
 Luxemburgo em perspectiva:
 Avaliar Rosa Luxemburgo na era moderna é reconhecer sua influência histórica, mas também refletir criticamente sobre suas limitações. Isso nos desafia a repensar justiça social, política e responsabilidade ética nas discussões teológicas contemporâneas.`
+    },
+    lutero: {
+      name: 'Martinho Lutero',
+      years: '1483–1546',
+      img: 'luter.jpg',
+      text: `Martinho Lutero (1483–1546), monge e teólogo alemão. Sua intenção não era criar uma nova religião, mas corrigir a filosofia da Igreja que amava.
+Em 1517, deu início à Reforma Protestante, criticando abusos da Igreja Católica. Suas ideias mudaram a fé cristã para sempre — porém, não sem controvérsias. A história mostra erros e acertos. Compreender seu legado nos ajuda a não repetir os mesmos equívocos.
+
+Impactos de Lutero:
+• Traduziu a Bíblia para o alemão, tornando a Palavra de Deus acessível.
+• Defendeu a justificação pela fé, central no protestantismo.
+• Questionou práticas corruptas, como a venda de indulgências.
+
+Erros e Limites:
+• Embora muito “venerado” pela igreja moderna como “salvador e libertador”, Lutero teve interpretações bíblicas rígidas, muitas vezes ignorando o contexto histórico e cultural das Escrituras.
+• Algumas de suas ideias sobre predestinação e graça foram reduzidas a leituras simplistas, gerando debates teológicos intensos.
+• Escreveu de forma intolerante contra judeus e opositores da Reforma.
+• Seu pensamento nem sempre se encaixa com valores modernos de diálogo, pluralidade e compreensão contextual da Bíblia.
+
+Refletir sobre esses erros nos ajuda a compreender a importância da hermenêutica responsável e do estudo teológico crítico, aprendendo com o passado para construir uma fé mais sólida e consciente.
+
+Lutero em Perspectiva:
+Avaliar Lutero de forma moderna é reconhecer seu impacto histórico, mas também refletir criticamente sobre seus erros. Isso nos ajuda a pensar em ética, fé e responsabilidade social na vida cristã contemporânea.`
     }
   };
 
-  // Abrir modal
   function openModal(key){
     const data = authors[key];
     document.getElementById('modal-img').src = data.img;
@@ -179,12 +195,13 @@ Avaliar Rosa Luxemburgo na era moderna é reconhecer sua influência histórica,
   }
 
   document.getElementById('author-rosa').addEventListener('click', function(e){ e.preventDefault(); openModal('rosa'); });
-  document.querySelectorAll('.post-item').forEach(el=> el.addEventListener('click', ()=> openModal('rosa')));
+  document.querySelectorAll('.post-item[data-author="rosa"]').forEach(el=> el.addEventListener('click', ()=> openModal('rosa')));
 
-  // fechar
+  document.getElementById('author-lutero').addEventListener('click', function(e){ e.preventDefault(); openModal('lutero'); });
+  document.querySelectorAll('.post-item[data-author="lutero"]').forEach(el=> el.addEventListener('click', ()=> openModal('lutero')));
+
   document.getElementById('closeBtn').addEventListener('click', ()=>{ document.getElementById('overlay').style.display='none'; document.body.style.overflow='auto'; });
   document.getElementById('overlay').addEventListener('click', (e)=>{ if(e.target.id === 'overlay'){ document.getElementById('overlay').style.display='none'; document.body.style.overflow='auto'; }});
-
 </script>
 
 </body>
