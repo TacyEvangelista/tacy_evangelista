@@ -1,0 +1,279 @@
+/* Variáveis para fácil manutenção de cores - NOVA PALETA IT GIRL */
+:root {
+    --primary-color: #8A2BE2; /* Roxo vibrante */
+    --secondary-color: #4a4a68; /* Texto escuro acinzentado */
+    --background-color: #fce4ec; /* Fundo rosa bem clarinho */
+    --card-background: #ffffff; /* Fundo do card */
+    --accent-color-1: #FF69B4; /* Rosa choque / Magenta */
+    --accent-color-2: #40e0d0; /* Azul Turquesa vibrante */
+    --text-light: #fefefe; /* Texto claro */
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte mais moderna */
+    line-height: 1.6;
+    color: var(--secondary-color);
+    background-color: var(--background-color);
+    transition: background-color 0.4s ease-in-out;
+}
+
+/* --- Cabeçalho (Header) --- */
+.header {
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color-1) 100%); /* Gradiente lindo! */
+    color: var(--text-light);
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden; /* Para os elementos de background */
+}
+
+.header::before { /* Detalhe decorativo no cabeçalho */
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: rotate(20deg);
+}
+
+
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 8px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    position: relative; /* Para ficar acima do ::before */
+    z-index: 1;
+}
+
+.header p {
+    font-size: 1.2em;
+    font-style: italic;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Layout Principal --- */
+.container {
+    display: flex;
+    max-width: 1280px; /* Um pouco mais largo */
+    margin: 40px auto;
+    padding: 0 25px;
+    gap: 35px;
+}
+
+/* --- Lista de Posts --- */
+.posts-list {
+    flex: 3;
+}
+
+.posts-list h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--accent-color-2); /* Turquesa para destaque */
+    padding-bottom: 12px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.post-card {
+    background-color: var(--card-background);
+    border: 1px solid #f0f0f0;
+    border-left: 6px solid var(--accent-color-1); /* Destaque rosa */
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.post-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.post-card p {
+    margin-bottom: 10px;
+}
+
+.post-card time {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #a0a0b9;
+    font-style: italic;
+}
+
+/* --- Botão CTA (Chamada para Ação) --- */
+.cta-button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(45deg, var(--accent-color-1) 0%, var(--accent-color-2) 100%); /* Gradiente no botão */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin-top: 30px;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+}
+
+/* --- Barra Lateral (Sidebar) --- */
+.sidebar {
+    flex: 1;
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    border-top: 5px solid var(--accent-color-2); /* Detalhe superior */
+}
+
+.sidebar h3 {
+    border-bottom: 3px solid var(--accent-color-1); /* Destaque rosa */
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.sidebar p {
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: var(--accent-color-1); /* Links em rosa */
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color); /* Hover em roxo */
+    text-decoration: underline;
+}
+
+/* --- Rodapé (Footer) --- */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1em;
+    margin-top: 50px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsividade (Media Queries) --- */
+@media (max-width: 992px) { /* Ajuste para telas um pouco maiores também */
+    .container {
+        flex-direction: column;
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
+    .posts-list, .sidebar {
+        flex: auto;
+        width: 100%;
+    }
+
+    .sidebar {
+        margin-top: 30px;
+    }
+
+    .header h1 {
+        font-size: 2.2em;
+    }
+    .header p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+    .header p {
+        font-size: 0.9em;
+    }
+    .posts-list h2, .sidebar h3 {
+        font-size: 1.4em;
+    }
+    .post-card h3 {
+        font-size: 1.2em;
+    }
+    .cta-button {
+        font-size: 1em;
+        padding: 15px;
+    }
+}
+
+/* Estilos para a segunda página (mantidos no style.css para reuso) */
+.page-content {
+    padding: 40px;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border-left: 8px solid var(--primary-color); /* Destaque na lateral */
+}
+.page-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--accent-color-1);
+    padding-bottom: 10px;
+    font-size: 1.8em;
+}
+.project-item {
+    border-bottom: 1px dashed #e0e0e0; /* Linha tracejada mais delicada */
+    padding: 20px 0;
+}
+.project-item:last-child {
+    border-bottom: none;
+}
+.project-item h3 {
+    color: var(--accent-color-2); /* Títulos dos projetos em turquesa */
+    margin-bottom: 8px;
+    font-size: 1.3em;
+}
+.project-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+.project-item a:hover {
+    color: var(--accent-color-1);
+    text-decoration: underline;
+}

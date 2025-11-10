@@ -1,225 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anne Oliveira — Fé, Razão e Cultura</title>
-  <meta name="description" content="Anne Oliveira — Criadora de conteúdo teológico e filosófico, explorando fé, razão e cultura." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --primary: #0f172a;
-      --accent: #d4af37; /* dourado */
-      --muted: #6b7280;
-      --glass: rgba(15,23,42,0.05);
-      font-family: 'Libre Baskerville', serif;
-    }
-    * { box-sizing: border-box; margin:0; padding:0; }
-    body { background: var(--bg); color: var(--primary); line-height: 1.6; }
-    a { color: var(--accent); text-decoration: none; }
-    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
-
-    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-    .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav a { font-weight: 600; color: var(--muted); transition: color 0.3s; }
-    nav a:hover { color: var(--accent); }
-
-    .hero { text-align: center; margin-bottom: 50px; }
-    .hero h1 { font-size: 36px; margin-bottom: 10px; }
-    .hero p { font-size: 18px; color: var(--muted); max-width: 700px; margin: 0 auto; }
-    .hero .verse { margin-top: 20px; font-style: italic; color: var(--accent); font-weight: 600; }
-    .hero .btn { display: inline-block; margin-top: 25px; padding: 12px 25px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; transition: background 0.3s; }
-    .hero .btn:hover { background: #b88923; }
-
-    .content { display: grid; grid-template-columns: 1fr; gap: 30px; }
-    .section { padding: 20px; background: var(--glass); border-radius: 12px; }
-    .section h2 { font-size: 24px; margin-bottom: 12px; }
-    .section p { color: var(--primary); }
-
-    .posts-list{display:flex;flex-direction:column;gap:12px}
-    .post-item{padding:12px 16px;background:rgba(212,175,55,0.08);border-left:4px solid var(--accent);border-radius:8px;cursor:pointer;transition:transform .2s}
-    .post-item:hover{transform:translateY(-3px);}
-
-    footer { text-align: center; margin-top: 50px; padding: 20px 0; border-top: 1px solid rgba(15,23,42,0.1); color: var(--muted); font-size: 14px; }
-
-    /* Modal */
-    .overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(15,23,42,0.48);backdrop-filter:blur(2px);z-index:60}
-    .modal{width:min(930px,95%);background:linear-gradient(180deg,#fff8f2,#f7efe6);border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.4);display:flex;gap:20px;overflow:hidden}
-    .modal .left{flex:0 0 44%;background:#f3e9df;padding:18px;display:flex;align-items:center;justify-content:center}
-    .modal .left img{width:100%;height:auto;max-height:440px;object-fit:cover;border-radius:6px;filter:sepia(0.5) contrast(0.95)}
-    .modal .right{flex:1;padding:20px;overflow:auto}
-    .modal h3{margin-top:0;color:var(--primary)}
-    .modal .years{color:var(--muted);margin-bottom:10px}
-    .close-btn{position:absolute;right:12px;top:10px;background:transparent;border:0;font-size:22px;color:#fff;cursor:pointer}
-
-    @media(max-width:768px){
-      nav ul { flex-direction: column; gap: 12px; }
-      .modal{flex-direction:column}
-      .modal .left{width:100%;flex:0 0 auto}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama & Logica - Blog Pentecostal e Filosófico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="header">
+        <h1>Chama & Lógica</h1>
+        <p>Filosofia, História da Igreja e o Movimento Pentecostal</p>
+    </header>
 
-<div class="container">
+    <main class="container">
+        <section class="posts-list">
+            <h2>Últimas Reflexões</h2>
+            
+            <article class="post-card" onclick="alert('Indo para a página do post: As Quatro Ondas do Pentecostalismo')">
+                <h3>As Quatro Ondas do Movimento Pentecostal</h3>
+                <p>Uma visão histórica sobre o surgimento do movimento, a Rua Azusa e as ramificações modernas da teologia da experiência.</p>
+                <time datetime="2025-11-10">10 de Novembro de 2025</time>
+            </article>
 
-  <header>
-    <div class="logo">Tacy Evangelista</div>
-    <nav>
-      <ul>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+            <article class="post-card" onclick="alert('Indo para a página do post: Teologia e Existencialismo')">
+                <h3>O Pensamento de Søren Kierkegaard e a Teologia</h3>
+                <p>Como o Existencialismo de Kierkegaard pode iluminar a experiência da fé e a filosofia pentecostal contemporânea.</p>
+                <time datetime="2025-11-01">01 de Novembro de 2025</time>
+            </article>
+            
+            <article class="post-card" onclick="alert('Indo para a página do post: A Reforma Protestante e o Legado de Lutero')">
+                <h3>A Reforma: Um Olhar Além de Lutero</h3>
+                <p>A História da Igreja revisitando os pilares da Reforma Protestante e seu impacto na eclesiologia moderna.</p>
+                <time datetime="2025-10-25">25 de Outubro de 2025</time>
+            </article>
 
-  <section class="hero">
-    <h1>Pesquiso e escrevo sobre fé, razão e cultura</h1>
-    <p>Este é um espaço dedicado a reflexões teológicas e filosóficas, com uma perspectiva cristã contemporânea, leve e intelectual.</p>
-    <div class="verse" id="verse">"Carregai os fardos uns dos outros, e assim cumprireis a lei de Cristo." — Gálatas 6:2</div>
-    <br>
-    <p>Recomendo acessar os blogs pelo botão abaixo, devido a uma instabilidade temporária no código do site.</p>
-    <a href="TacyEvangelista-Recursos-Estudos.html" class="btn">Ir para Estudos</a>
-  </section>
+            <button class="cta-button" onclick="window.location.href='segunda-pagina.html'">
+                Ver Meus Projetos de Tecnologia e História
+            </button>
+        </section>
+        
+        <aside class="sidebar">
+            <h3>Sobre Mim</h3>
+            <div class="profile-photo-container"> 
+                <img src="x.jpeg" alt="" class="profile-photo">
+            </div>
+            
+            <p>Técnica em Desenvolvimento de Software e apaixonada pela intersecção entre Filosofia e História da Igreja. Meu foco é trazer profundidade teológica à experiência Pentecostal. Você encontrará aqui reflexões que unem código e fé.</p>
+            <div class="social-links">
+                <a href="https://github.com/TacyEvangelista" target="_blank">GitHub (Tech)</a> | 
+                <a href="https://www.linkedin.com/in/taciane-de-almeida-426a81288/" target="_blank">linkedin</a>
+            </div>
+        </aside>
+    </main>
 
-  <div class="content">
+    <footer class="footer">
+        <p>&copy; 2025 Tacy Evangelista. Todos os direitos reservados. "O Espírito e a razão nos guiam."</p>
+    </footer>
 
-    <section class="section" id="about">
-      <h2>Sobre Mim</h2>
-      <p>Sou Tacy Evangelista, graduanda em Biomedicina e programadora nas horas vagas, dedicada à criação de conteúdo teológico e filosófico. Este espaço concentra meus estudos, reflexões e análises sobre fé, razão e cultura.</p>
-    </section>
-
-    <section class="section" id="blog">
-      <h2>Posts Recentes</h2>
-      <div class="posts-list">
-        <div class="post-item" data-author="rosa">Rosa Luxemburgo — Erros e Limites (clique para ler)</div>
-        <div class="post-item" data-author="lutero">Martinho Lutero — Legado Questionável (clique para ler)</div>
-      </div>
-      <p style="margin-top:12px; color:var(--muted); font-size:14px;">Clique nos posts para ver mais detalhes sobre cada autor.</p>
-    </section>
-
-    <section class="section" id="contact">
-      <h2>Contato</h2>
-      <p>Email: <a href="mailto:tacianeoli55@gmail.com">tacianeoli55@gmail.com</a><br>
-      Telefone: (75) 8148-5516</p>
-    </section>
-
-  </div>
-
-  <footer>
-    © 2025 Tacy Evangelista — Fé, Razão e Cultura
-  </footer>
-
-</div>
-
-<!-- Modal -->
-<div class="overlay" id="overlay">
-  <div class="modal" role="dialog" aria-modal="true">
-    <div class="left">
-      <img id="modal-img" src="" alt="">
-    </div>
-    <div class="right">
-      <h3 id="modal-name">Nome</h3>
-      <div class="years" id="modal-years">0000–0000</div>
-      <div id="modal-text" style="white-space:pre-wrap;color:var(--primary)"></div>
-    </div>
-    <button class="close-btn" id="closeBtn">✕</button>
-  </div>
-</div>
-
-<script>
-  // Versículos rotativos
-  const verses = [
-    '"Carregai os fardos uns dos outros, e assim cumprireis a lei de Cristo." — Gálatas 6:2',
-    '"Lâmpada para os meus pés é a tua palavra, e luz para o meu caminho." — Salmos 119:105',
-    '"Porque a sabedoria vem do Senhor e é com Ele que permanece." — Provérbios 2:6'
-  ];
-  let index = 0;
-  setInterval(() => {
-    index = (index + 1) % verses.length;
-    document.getElementById('verse').textContent = verses[index];
-  }, 8000);
-
-  // Conteúdo dos autores
-  const authors = {
-    rosa: {
-      name: 'Rosa Luxemburgo',
-      years: '1871–1919',
-      img: 'rosa.jpg',
-      text: `Rosa Luxemburgo (1871–1919), revolucionária marxista, filósofa e teórica política alemã.
-
-Ela não era cristã, mas estudava e utilizava referências teológicas para embasar suas reflexões e críticas sociais em favor do socialismo. Suas ideias transformaram o pensamento político do século XX e inspiraram movimentos revolucionários, ainda que envoltas em fortes controvérsias. A história registra erros e acertos em sua trajetória; compreender seu legado é essencial para evitar os mesmos equívocos.
-
-Impactos de Luxemburgo:
-O pensamento crítico de Rosa Luxemburgo inspira correntes como a Teologia da Libertação, influenciando debates atuais sobre justiça social e fé. Ela defendia que os atos de justiça e política deveriam ser avaliados pelo impacto sobre todos, sem favorecer rico ou pobre, mantendo uma perspectiva igualitária.
-
-Erros e limites:
-Ela usou conceitos religiosos de forma instrumental, sem compromisso com a tradição cristã, o que pode gerar interpretações superficiais. Suas críticas, por vezes, generalizaram a instituição como instrumento de opressão, ignorando nuances e movimentos cristãos engajados em justiça social.
-Sua leitura política podia limitar diálogos mais amplos, tratando certas correntes religiosas ou de direita apenas como inimigas, sem reconhecer complexidades históricas.
-Sua abordagem raramente buscou compreender a experiência espiritual dos cristãos, o que restringiu o impacto de suas críticas no campo teológico.
-
-Luxemburgo em perspectiva:
-Avaliar Rosa Luxemburgo na era moderna é reconhecer sua influência histórica, mas também refletir criticamente sobre suas limitações. Isso nos desafia a repensar justiça social, política e responsabilidade ética nas discussões teológicas contemporâneas.`
-    },
-    lutero: {
-      name: 'Martinho Lutero',
-      years: '1483–1546',
-      img: 'luter.jpg',
-      text: `Martinho Lutero (1483–1546), monge e teólogo alemão. Sua intenção não era criar uma nova religião, mas corrigir a filosofia da Igreja que amava. Em 1517, deu início à Reforma Protestante, criticando abusos da Igreja Católica. Suas ideias mudaram a fé cristã para sempre, mas não sem controvérsias. A história mostra erros e acertos. Compreender seu legado nos ajuda a não repetir os mesmos equívocos.
-
-Impactos de Lutero:
-- Traduziu a Bíblia para o alemão, tornando a palavra de Deus acessível.
-- Defendeu a justificação pela fé, central no protestantismo.
-- Questionou práticas corruptas, como a venda de indulgências.
-
-Erros e Limites:
-- Interpretou algumas passagens de forma rígida, ignorando contexto histórico e cultural.
-- Algumas ideias sobre predestinação e graça foram simplificadas, gerando debates intensos.
-- Escreveu de forma intolerante contra judeus e opositores da Reforma.
-
-Lutero em Perspectiva:
-Avaliar Lutero de forma moderna é reconhecer seu impacto histórico, mas também refletir criticamente sobre seus erros. Nos ajuda a pensar em ética, fé e responsabilidade social na vida cristã contemporânea.`
-    }
-  };
-
-  // Abrir modal
-  function openModal(key){
-    const data = authors[key];
-    document.getElementById('modal-img').src = data.img;
-    document.getElementById('modal-img').alt = data.name;
-    document.getElementById('modal-name').textContent = data.name;
-    document.getElementById('modal-years').textContent = data.years;
-    document.getElementById('modal-text').textContent = data.text;
-    document.getElementById('overlay').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-
-  // Clique nos posts
-  document.querySelectorAll('.post-item').forEach(el => {
-    el.addEventListener('click', () => {
-      const key = el.getAttribute('data-author');
-      openModal(key);
-    });
-  });
-
-  // Fechar modal
-  document.getElementById('closeBtn').addEventListener('click', ()=> {
-    document.getElementById('overlay').style.display='none';
-    document.body.style.overflow='auto';
-  });
-  document.getElementById('overlay').addEventListener('click', (e)=> {
-    if(e.target.id === 'overlay'){
-      document.getElementById('overlay').style.display='none';
-      document.body.style.overflow='auto';
-    }
-  });
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
-
