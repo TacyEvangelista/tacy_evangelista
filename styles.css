@@ -277,3 +277,36 @@ body {
     color: var(--accent-color-1);
     text-decoration: underline;
 }
+/* --- Estilos para a seção de Referências --- */
+.references {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--accent-color-1); /* Linha tracejada para separar do corpo do texto */
+}
+
+.references h2 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.references ul {
+    list-style: none; /* Remove os marcadores de lista padrão */
+    padding-left: 0;
+}
+
+.references li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.95em;
+    color: var(--secondary-color);
+}
+
+.references li::before {
+    content: '📚'; /* Ícone de livro ou outro ícone tecnológico (pode ser "•" ou "→") */
+    position: absolute;
+    left: 0;
+    color: var(--accent-color-2); /* Cor turquesa do design IT Girl */
+    font-weight: bold;
+}
