@@ -3,64 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chama & Logica - Blog Pentecostal e Filosófico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Tacy Evangelista - Sites que Geram Resultados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <header class="header">
-        <h1>Chama & Lógica</h1>
-        <p>Filosofia, História da Igreja e o Movimento Pentecostal</p>
+
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <nav>
+        <div class="logo">TacyEvangelista<span>.dev</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#metodologia">Metodologia</a> <li><a href="#diferenciais">Diferenciais</a> <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <h1 class="animated-text">Seu Negócio Merece um Site Incrível.</h1>
+        <p class="animated-text delay-1">Especialistas na criação de websites que convertem visitas em clientes.</p>
+        <a href="#metodologia" class="btn-primary animated-element delay-2">Conhecer a Metodologia</a>
     </header>
 
-    <main class="container">
-        <section class="posts-list">
-            <h2>Últimas Reflexões</h2>
-            
+    <section id="sobre" class="about-section scroll-reveal">
+    <div class="content-wrapper">
+        <h2>Quem Sou Eu e o Que Faço</h2>
 
-            <article class="post-card" onclick="window.location.href='reforma-alem-lutero.html'">
-              <h3>A Reforma: Um Olhar Além de Lutero</h3>
-               <p>A História da Igreja revisitando os pilares da Reforma Protestante e seu impacto na eclesiologia moderna. O elo entre Jan Hus e Lutero.</p>
-               <time datetime="2025-10-25">25 de Outubro de 2025</time>
-            </article>
+        <div class="profile-photo-small">
+            <img src="eu.jpeg" alt="Foto profissional de [Seu Nome]">
+        </div>
+        <p>Com anos de estudo no mercado digital, minha missão é transformar ideias em realidade online. Eu desenvolvo sites modernos, responsivos e otimizados para busca, garantindo que sua marca tenha a presença digital que merece.</p>
+        <p>Sou apaixonado por design e código limpo, sempre buscando as melhores soluções para impulsionar o seu negócio.</p>
+        <a href="#contato" class="btn-secondary">Fale Comigo</a>
+    </div>
 
-            <article class="post-card" onclick="alert('Indo para a página do post: As Quatro Ondas do Pentecostalismo')">
-                <h3>As Quatro Ondas do Movimento Pentecostal</h3>
-                <p>Uma visão histórica sobre o surgimento do movimento, a Rua Azusa e as ramificações modernas da teologia da experiência.</p>
-                <time datetime="2025-11-10">10 de Novembro de 2025</time>
-            </article>
 
-            <article class="post-card" onclick="alert('Indo para a página do post: Teologia e Existencialismo')">
-                <h3>O Pensamento de Søren Kierkegaard e a Teologia</h3>
-                <p>Como o Existencialismo de Kierkegaard pode iluminar a experiência da fé e a filosofia pentecostal contemporânea.</p>
-                <time datetime="2025-11-01">01 de Novembro de 2025</time>
-            </article>
-            
-           
-            <button class="cta-button" onclick="window.location.href='segunda-pagina.html'">
-                Ver Meus Projetos de Tecnologia e História
-            </button>
-        </section>
-        
-        <aside class="sidebar">
-            <h3>Sobre Mim</h3>
-            <div class="profile-photo-container"> 
-                <img src="x.jpeg" alt="x" class="profile-photo">
+    <section id="servicos" class="services-section scroll-reveal">
+        <h2>Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <i class="icon-design"></i>
+                <h3>Sites Institucionais</h3>
+                <p>Presença online profissional para sua empresa, com foco na sua marca e valores.</p>
             </div>
             
-            <p>Técnica em Desenvolvimento de Software e apaixonada pela intersecção entre Filosofia e História da Igreja. Meu foco é trazer profundidade teológica à experiência Pentecostal. Você encontrará aqui reflexões que unem código e fé.</p>
-            <div class="social-links">
-                <a href="https://github.com/TacyEvangelista" target="_blank">GitHub (Tech)</a> | 
-                <a href="https://www.linkedin.com/in/taciane-de-almeida-426a81288/" target="_blank">linkedin</a>
+            <div class="service-item">
+                <i class="icon-landingpage"></i>
+                <h3>Landing Pages de Alta Conversão</h3>
+                <p>Páginas focadas em captar leads e gerar vendas para suas campanhas de marketing.</p>
             </div>
-        </aside>
-    </main>
+            
+        </div>
+    </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Tacy Evangelista. Todos os direitos reservados. "O Espírito e a razão nos guiam."</p>
+    <section id="metodologia" class="portfolio-section scroll-reveal">
+        <h2>Nossa Metodologia de Sucesso</h2>
+        <div class="project-grid"> <div class="project-item">
+                <img src="https://placehold.co/600x400/007bff/ffffff?text=1.+PLANEJAMENTO" alt="Etapa de Planejamento Estratégico">
+                <h3>1. Planejamento Estratégico</h3>
+                <p>Análise de mercado e definição dos objetivos de conversão do seu novo site.</p>
+            </div>
+            <div class="project-item">
+                <img src="https://placehold.co/600x400/3498db/ffffff?text=2.+DESIGN+UX" alt="Etapa de Design UX/UI">
+                <h3>2. Design e Experiência (UX/UI)</h3>
+                <p>Criação de protótipos visuais focados em usabilidade e na identidade visual da sua marca.</p>
+            </div>
+            <div class="project-item">
+                <img src="https://placehold.co/600x400/2ecc71/ffffff?text=3.+CODIFICACAO+E+SEO" alt="Etapa de Codificação e SEO">
+                <h3>3. Desenvolvimento Otimizado</h3>
+                <p>Codificação limpa, rápida e otimizada para os mecanismos de busca (SEO) do Google.</p>
+            </div>
+            <div class="project-item">
+                <img src="https://placehold.co/600x400/e74c3c/ffffff?text=4.+LANCAMENTO" alt="Etapa de Lançamento e Suporte">
+                <h3>4. Lançamento e Suporte</h3>
+                <p>Teste final, colocação no ar e acompanhamento de performance pós-lançamento, por 30 dias.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="diferenciais" class="testimonials-section scroll-reveal">
+        <h2>Por Que Somos a Escolha Certa?</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-item">
+                <h3>SEO Desde a Estrutura</h3>
+                <p>Não fazemos apenas sites; fazemos ferramentas de marketing. Seu site nasce pronto para ranquear e atrair tráfego orgânico.</p>
+            </div>
+            <div class="testimonial-item">
+                <h3>Velocidade e Performance</h3>
+                <p>Sites lentos perdem vendas. Garantimos a máxima velocidade de carregamento para reter visitantes e melhorar a conversão.</p>
+            </div>
+             <div class="testimonial-item">
+                <h3>Design Exclusivo</h3>
+                <p>Esqueça os templates genéricos. Criamos designs únicos que fortalecem sua marca e fazem você se destacar da concorrência.</p>
+            </div>
+        </div>
+    </section>
+
+   <section id="contato" class="contact-section scroll-reveal section-cta-minimal"> 
+    <h2>Vamos Construir Seu Sucesso Online!</h2>
+    <p>O sucesso online começa com uma conversa. Escolha a melhor forma de iniciar seu projeto e tirar suas dúvidas:</p>
+    
+    <div class="contact-buttons-wrapper">
+        <a href="https://wa.me/7581485516?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%C3%A7%C3%A3o%20de%20sites." 
+           target="_blank" 
+           class="btn-contact btn-whatsapp-minimal animated-element">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+        <a href="mailto:evangelistatacy@exemplo.com.br?subject=Orçamento%20Criação%20de%20Site" 
+           class="btn-contact btn-email-minimal animated-element">
+            <i class="fas fa-envelope"></i> E-mail
+        </a>
+    </div>
+
+    <p class="contact-info">Atendimento Imediato | Todos os dias</p>
+</section>
+
+
+
+    <footer>
+        <p>&copy; 2025 TacyEvangelista.dev. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>

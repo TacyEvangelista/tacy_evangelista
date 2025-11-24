@@ -1,76 +1,566 @@
-/* modal */
-.overlay{
-  position:fixed;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  background:rgba(107,15,23,0.48);
-  backdrop-filter:blur(2px);
-  z-index:60;
-}
-.modal{
-  width:min(930px,95%);
-  max-height:90vh; /* ✅ impede de sair da tela */
-  background:linear-gradient(180deg,#fff8f2,#f7efe6);
-  border-radius:12px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
-  display:flex;
-  gap:20px;
-  overflow:hidden;
-  position:relative;
-}
-.modal .left{
-  flex:0 0 44%;
-  background:#f3e9df;
-  padding:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.modal .left img{
-  width:100%;
-  height:auto;
-  max-height:82vh; /* ✅ evita imagem gigante */
-  object-fit:cover;
-  border-radius:6px;
-  filter:sepia(0.5) contrast(0.95);
-}
-.modal .right{
-  flex:1;
-  padding:20px;
-  overflow-y:auto; /* ✅ rolagem garantida */
-  max-height:82vh; /* garante espaço p/ rolar */
-}
-.modal h3{
-  margin-top:0;color:var(--primary)
-}
-.modal .years{
-  color:var(--muted);
-  margin-bottom:10px
-}
-.close-btn{
-  position:absolute;
-  right:12px;
-  top:10px;
-  background:transparent;
-  border:0;
-  font-size:22px;
-  color:#fff;
-  cursor:pointer;
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@media(max-width:900px){
-  .modal{
-    flex-direction:column;
-    max-height:92vh; /* ajustado para mobile */
-  }
-  .modal .left{
-    width:100%;
-    flex:0 0 auto;
-    max-height:35vh; /* imagem não ocupa tudo */
-  }
-  .modal .right{
-    max-height:55vh;
-  }
+:root {
+    --cor-primaria: #007bff; /* Azul vibrante */
+    --cor-secundaria: #3498db; /* Azul um pouco mais claro */
+    --cor-fundo: #0d0d0d; /* Fundo escuro quase preto */
+    --cor-texto-claro: #f8f9fa; /* Texto claro */
+    --cor-texto-escuro: #333333; /* Texto escuro (para contraste) */
+    --cor-card-fundo: #1a1a1a; /* Fundo de cards/seções */
+    --fonte-principal: 'Inter', sans-serif;
+    --anim-duration: 0.8s;
+    --anim-delay-base: 0.2s;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none; /* Oculta o cursor padrão */
+}
+
+/* --- Cursor Customizado --- */
+.custom-cursor, .custom-cursor-follower {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+/* --- Estilos da Foto de Perfil Pequena --- */
+
+.profile-photo-small {
+    /* Centraliza o container da foto */
+    text-align: center;
+    margin-bottom: 2em; /* Espaço entre a foto e o texto principal */
+}
+
+.profile-photo-small img {
+    /* Define o tamanho da foto */
+    width: 120px;
+    height: 120px;
+    
+    /* Cria a forma redonda */
+    border-radius: 50%;
+    
+    /* Garante que a imagem preencha o círculo sem distorção */
+    object-fit: cover;
+    
+    /* Adiciona um toque de design (opcional) */
+    border: 3px solid var(--cor-primaria); 
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2); 
+    
+    /* Garante que o cursor customizado reaja à foto */
+    transition: transform 0.3s ease;
+}
+
+/* Opcional: Animação de hover na foto, para quem tiver o cursor customizado ativado */
+.profile-photo-small img:hover {
+    transform: scale(1.05);
+}
+
+
+/* --- Ajuste na seção 'Sobre' para garantir que os textos funcionem bem com a foto --- */
+/* Certifique-se de que a seção 'content-wrapper' está centralizada e com o texto alinhado, como já estava antes */
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; /* Mantém todo o conteúdo centralizado */
+}
+
+.custom-cursor {
+    width: 15px;
+    height: 15px;
+    background-color: var(--cor-primaria);
+    mix-blend-mode: difference;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--cor-primaria);
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out, border-color 0.3s ease;
+    opacity: 0.7;
+}
+
+/* Estado hover do cursor */
+a:hover ~ .custom-cursor, button:hover ~ .custom-cursor,
+.project-item:hover ~ .custom-cursor, .service-item:hover ~ .custom-cursor,
+.testimonial-item:hover ~ .custom-cursor {
+    width: 30px;
+    height: 30px;
+    background-color: var(--cor-texto-claro);
+}
+
+a:hover ~ .custom-cursor-follower, button:hover ~ .custom-cursor-follower,
+.project-item:hover ~ .custom-cursor-follower, .service-item:hover ~ .custom-cursor-follower,
+.testimonial-item:hover ~ .custom-cursor-follower {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.4;
+    border-color: var(--cor-texto-claro);
+}
+
+
+/* --- Navegação --- */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(13, 13, 13, 0.95); /* Fundo semi-transparente */
+    padding: 1.2em 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--cor-texto-claro);
+}
+
+nav .logo span {
+    color: var(--cor-primaria);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2.5em;
+}
+
+nav ul li a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.1em;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-primaria);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* --- Botões --- */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 1em 2em;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1.5em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--cor-secundaria);
+    color: var(--cor-secundaria);
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-fundo);
+    transform: translateY(-3px);
+}
+
+
+/* --- Seção Principal (Hero) --- */
+header.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+    background: linear-gradient(135deg, var(--cor-fundo) 0%, #1a1a1a 100%);
+    position: relative; /* Para possíveis efeitos de fundo */
+    padding-top: 80px; /* Espaço para a navbar */
+}
+
+header.hero h1 {
+    font-size: 4.5em;
+    margin-bottom: 0.4em;
+    max-width: 800px;
+    line-height: 1.1;
+}
+header.hero h1 span { color: var(--cor-primaria); }
+
+header.hero p {
+    font-size: 1.4em;
+    max-width: 700px;
+    margin-bottom: 1.5em;
+    color: var(--cor-texto-claro);
+}
+
+/* --- Estilos de Seções --- */
+section {
+    padding: 6em 4em;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: var(--cor-primaria);
+}
+
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.content-wrapper p {
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+    color: var(--cor-texto-claro);
+}
+
+/* --- Seção Serviços --- */
+.services-section {
+    background-color: var(--cor-card-fundo);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.service-item {
+    background-color: #2a2a2a;
+    padding: 2em;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    background-color: #3a3a3a;
+}
+
+.service-item i { /* Placeholder para ícones */
+    font-size: 3em;
+    color: var(--cor-primaria);
+    margin-bottom: 0.5em;
+    display: block; /* Para centralizar */
+}
+
+.service-item h3 {
+    font-size: 1.8em;
+    color: var(--cor-texto-claro);
+    margin-bottom: 0.8em;
+}
+
+.service-item p {
+    font-size: 1em;
+    color: #cccccc;
+}
+
+/* --- Seção Portfólio (mantido similar) --- */
+.portfolio-section {
+    padding-top: 2em; /* Ajuste para não conflitar com a navbar */
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.project-item {
+    background-color: var(--cor-card-fundo);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Garante que a imagem arredondada funcione */
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+}
+
+.project-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid var(--cor-primaria);
+}
+
+.project-item h3 {
+    color: var(--cor-primaria);
+    margin: 1em 0 0.5em;
+    padding: 0 1em;
+}
+
+.project-item p {
+    font-size: 1em;
+    color: #cccccc;
+    margin-bottom: 1em;
+    padding: 0 1em;
+}
+
+.project-item a {
+    display: inline-block;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: bold;
+    padding-bottom: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.project-item a:hover {
+    color: #0056b3;
+}
+
+/* --- Seção Testemunhos --- */
+.testimonials-section {
+    background-color: var(--cor-card-fundo);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+}
+
+.testimonial-item {
+    background-color: #2a2a2a;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-style: italic;
+}
+
+.testimonial-item p {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}
+
+.testimonial-item span {
+    display: block;
+    font-weight: bold;
+    color: var(--cor-primaria);
+    margin-top: 1em;
+}
+
+/* --- Seção Contato --- */
+.contact-section {
+    text-align: center;
+}
+.contact-form {
+    max-width: 600px;
+    margin: 2em auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: var(--cor-texto-claro);
+    border-radius: 5px;
+    font-family: var(--fonte-principal);
+    font-size: 1em;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #888;
+}
+
+.contact-form button {
+    cursor: pointer;
+}
+
+/* --- Rodapé --- */
+footer {
+    background-color: #1a1a1a;
+    color: #cccccc;
+    text-align: center;
+    padding: 2em 1em;
+    font-size: 0.9em;
+}
+
+
+/* --- Responsividade --- */
+@media (max-width: 1024px) {
+    nav { padding: 1.2em 2em; }
+    nav ul li { margin-left: 1.5em; }
+    header.hero h1 { font-size: 3.5em; }
+    header.hero p { font-size: 1.2em; }
+    section { padding: 4em 2em; }
+    section h2 { font-size: 2.5em; }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1em;
+    }
+    nav ul {
+        margin-top: 1em;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0.5em 1em;
+    }
+
+    header.hero { padding-top: 120px; } /* Ajuste maior para a navbar flexível */
+    header.hero h1 { font-size: 2.5em; }
+    header.hero p { font-size: 1em; }
+    .btn-primary, .btn-secondary { padding: 0.8em 1.5em; }
+    
+    .custom-cursor, .custom-cursor-follower { display: none; /* Oculta em mobile */ }
+    
+    .content-wrapper { padding: 0 1em; }
+
+    .services-grid, .project-grid, .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li { margin: 0.3em 0.5em; font-size: 0.9em; }
+    header.hero h1 { font-size: 2em; }
+    section h2 { font-size: 2em; }
+    .content-wrapper p { font-size: 0.9em; }
+    .project-item h3 { font-size: 1.5em; }
+    .service-item h3 { font-size: 1.5em; }
+    .testimonial-item p { font-size: 1em; }
+}
+/* --- Estilo MINIMALISTA para a Seção de Contato --- */
+
+/* Resetando o fundo chamativo, voltando para o padrão */
+.contact-section {
+    background-color: var(--cor-fundo); /* Fundo escuro padrão */
+    padding: 6em 4em; /* Padding padrão */
+}
+
+/* Alinhamento dos botões (Mantido) */
+.contact-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 3em; /* Mais espaço entre os botões para 'respirar' */
+    margin-top: 2.5em;
+    margin-bottom: 2em;
+}
+
+/* Estilo Base para os Botões de Contato (Transparente e Borda) */
+.btn-contact {
+    /* Tornamos a base transparente */
+    background-color: transparent !important;
+    color: var(--cor-texto-claro) !important;
+    
+    /* Adicionamos uma borda fina, elegante e em cor primária */
+    border: 1px solid var(--cor-primaria);
+    
+    font-size: 1.1em;
+    font-weight: 400; /* Menos negrito */
+    padding: 1em 2em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: none !important; /* Remove qualquer sombra */
+}
+
+/* 1. Efeito Hover: Inverte as cores (Minimalista e Eficaz) */
+.btn-contact:hover {
+    background-color: var(--cor-primaria) !important;
+    color: var(--cor-fundo) !important; /* Texto escuro ao inverter */
+    transform: none !important; /* Remove o salto/escala para ser mais suave */
+}
+
+.btn-contact i {
+    margin-right: 10px;
+}
+
+/* Estilos de cor para o WhatsApp e E-mail, para manter a diferenciação sutil */
+.btn-whatsapp-minimal {
+    border-color: #25d366; /* Borda verde sutil */
+}
+.btn-whatsapp-minimal:hover {
+    background-color: #25d366 !important;
+}
+
+.btn-email-minimal {
+    border-color: var(--cor-primaria); /* Borda azul padrão */
+}
+.btn-email-minimal:hover {
+    background-color: var(--cor-primaria) !important;
+}
+
+/* Ajuste na tipografia da seção */
+.contact-section h2 {
+    color: var(--cor-texto-claro); /* Mantém o H2 na cor primária, mas com borda */
+}
+.contact-info {
+    font-size: 0.9em;
+    color: #888; /* Texto mais sutil */
+}
+
+
+/* Responsividade para empilhar os botões em telas pequenas (mantido) */
+@media (max-width: 600px) {
+    .contact-buttons-wrapper {
+        flex-direction: column;
+        gap: 1em;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .btn-contact {
+        width: 100%;
+        font-size: 1em;
+    }
 }
